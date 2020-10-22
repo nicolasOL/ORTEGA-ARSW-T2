@@ -1,14 +1,14 @@
-var Url ="http://"+$(location).attr('hostname')+":"+$(location).attr('port')+"/casos";
-var apiclient = (function(){
+//var Url ="http://"https://ortega-arsw-t2.herokuapp.com/clima/;"
+var Url= "http://localhost:8080/clima/";
+var api = (function(){
 	
 	return {
 		
 		getCityWeather: function (city,callback){
 				var f;
-				$.get("/clima/"+city,function(data){
-	                    f=data;
+				$.getJSON("/clima/"+city,function(data){
+	                    callback(data);
 	                });
-	                return callback(f)
 		},
 		
 		getCasesByCountry: function (pais,callback){
@@ -19,5 +19,5 @@ var apiclient = (function(){
 	                return callback(g)
 		}
 		
-	};
+	}
 })();

@@ -10,9 +10,8 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	
-	    <script src="/webjars/jquery/jquery.min.js"></script>
-	    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-	    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 	    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/apiclient.js"></script>
 		<script src="js/weatherApp.js"></script>
@@ -79,7 +78,7 @@
 		</h2>
 		<br></br>
 		<div style="text-align: center;">
-				<input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon1">
+				<input type="text" id = "city" class="form-control" placeholder="city" aria-label="city" aria-describedby="basic-addon1">
 				<br></br>
 				<button type="button" class="btn btn-warning" onclick="weatherApp.input()">Consult city</button>
 		</div>
@@ -89,7 +88,7 @@
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
-					<table class="table">
+					<table class="table" id="info">
 					  <thead>
 					    <tr>
 					      <th scope="col">City</th>
@@ -97,6 +96,8 @@
 					      <th scope="col">Sensation</th>
 					      <th scope="col">Minimum temperature</th>
 						<th scope="col">Minimum temperature</th>
+						<th scope="col">Pressure</th>
+						<th scope="col">Humidity</th>
 					    </tr>
 					  </thead>
 			
@@ -117,7 +118,24 @@
 		</div>
 		<br></br>
 		
-		
+		<style>
+        #map {
+            height: 400px;
+            width: 100%;
+            background-color: grey;
+        }
+        .body {
+            background-color: #B8DAF0;
+        }
+        .grid-container {
+            display: grid;
+            grid-column-gap: 60px;
+            grid-template-columns: auto auto;
+            padding: 10px;
+            text-indent: 00px;
+        }
+    </style>
+	<div id="map"></div>
 				  
 		
 		
