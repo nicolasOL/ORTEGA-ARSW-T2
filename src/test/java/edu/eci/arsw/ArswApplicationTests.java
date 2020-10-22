@@ -22,9 +22,9 @@ class ArswApplicationTests {
 	
 	@Autowired
 	WeatherStatsServices t;
-	/*
+	
 	@Autowired
-	HttpConnectionService t;
+	HttpConnectionService hs;
 
 	@Autowired
 	WeatherStatsServices cs;
@@ -32,7 +32,7 @@ class ArswApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
+/*
 	@Test
 	public void shouldReturnAllCases() throws UnirestException {
 		HttpResponse<JsonNode> response = Unirest.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats")

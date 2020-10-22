@@ -1,9 +1,6 @@
 package edu.eci.arsw.services;
 
-import java.util.HashMap;
-import java.util.List;
-
-import edu.eci.arsw.model.*;
+import edu.eci.arsw.model.DatosCiudad;
 
 public interface WeatherStatsServices {
 	

@@ -1,10 +1,5 @@
 package edu.eci.arsw.services.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +11,6 @@ import edu.eci.arsw.cache.WeatherStatsCache;
 import edu.eci.arsw.connection.HttpConnectionService;
 import edu.eci.arsw.services.WeatherStatsServices;
 import edu.eci.arsw.model.DatosCiudad;
-import edu.eci.arsw.model.DatosProvincia;
 
 @Service
 public class WeatherStatsServicesImpl implements WeatherStatsServices {
@@ -26,22 +20,34 @@ public class WeatherStatsServicesImpl implements WeatherStatsServices {
 
 	@Autowired
 	public WeatherStatsCache weatherStatsCache;
-
+	
+	@Autowired
+	public WeatherStatsCache cache;
+	
+	/**
+	 * Retorna el objeto con los datos del clima de la ciudad seleccionada
+	 * @param String city
+	 */
 	@Override
 	public DatosCiudad cityWeather(String city) {
+		DatosCiudad resp=null;
+		if (cache.getMemoriaCiudad().containsKey(city)) {
+			resp=cache.getMemoriaCiudad().get(city);
+		}else {
+			HttpResponse<JsonNode> res = connectionHttp.cityWeather(city);
+			
+			JSONObject r = res.getBody().getObject().getJSONObject("main");
+			
+			String temp=Double.toString(r.getDouble("temp"));
+			String sens=Double.toString(r.getDouble("feels_like"));
+			String min=Double.toString(r.getDouble("temp_min"));
+			String max=Double.toString(r.getDouble("temp_max"));
+			String pre=String.valueOf(r.getLong("pressure"));
+			String hum=String.valueOf(r.getLong("humidity"));
+			
+			resp= new DatosCiudad(city, temp, sens, min, max, hum, pre);
+		}		
 		
-		HttpResponse<JsonNode> res = connectionHttp.cityWeather(city);
-		
-		JSONObject r = res.getBody().getObject().getJSONObject("main");
-		
-		String temp=r.getString("temp");
-		String sens=r.getString("feels_like");
-		String min=r.getString("temp_min");
-		String max=r.getString("temp_max");
-		String pre=r.getString("pressure");
-		String hum=r.getString("humidity");
-		
-		DatosCiudad resp= new DatosCiudad(city, temp, sens, min, max, hum, pre);
 		
 		return resp;
 	}

@@ -1,5 +1,5 @@
 package edu.eci.arsw.exception;
 
-public class exceptionApp {
+public class exceptionApp extends Exception{
     
 }

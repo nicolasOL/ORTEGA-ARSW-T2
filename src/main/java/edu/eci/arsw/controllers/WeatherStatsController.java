@@ -17,8 +17,12 @@ import org.springframework.stereotype.Controller;
 
 import edu.eci.arsw.services.WeatherStatsServices;
 
+/**
+ * @author Nicolás
+ *
+ */
 @RestController
-@RequestMapping("/casos") 
+@RequestMapping("/clima") 
 public class WeatherStatsController {
 
     @Autowired
@@ -37,9 +41,9 @@ public class WeatherStatsController {
     }
 */
     @GetMapping("/{ciudad}")
-    public ResponseEntity<?> getCasesByCountry(@PathVariable String pais){
+    public ResponseEntity<?> getWeatherByCity(@PathVariable String ciudad){
         try{
-            String data = new Gson().toJson(weatherStatsServices.cityWeather(pais));
+            String data = new Gson().toJson(weatherStatsServices.cityWeather(ciudad));
             return new ResponseEntity<>(data,HttpStatus.ACCEPTED);
         }catch(Exception ex){
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

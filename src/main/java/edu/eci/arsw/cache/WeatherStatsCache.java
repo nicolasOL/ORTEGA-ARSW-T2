@@ -12,11 +12,11 @@ import edu.eci.arsw.model.DatosCiudad;
 public class WeatherStatsCache {
     private HashMap<String,DatosCiudad> memoriaDatoCiudad = new HashMap<String,DatosCiudad>();
     
-    public void saveDatoPais(String pais, DatosCiudad datosPais){
-        memoriaDatoCiudad.put(pais, datosPais);
+    public void saveDatoCiudad(String ciudad, DatosCiudad datos){
+        memoriaDatoCiudad.put(ciudad, datos);
     }
 
-    public HashMap<String,DatosCiudad> getMemoriaDatoPais(){
+    public HashMap<String,DatosCiudad> getMemoriaCiudad(){
         return memoriaDatoCiudad;
     }
 
