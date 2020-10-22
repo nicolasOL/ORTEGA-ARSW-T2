@@ -25,11 +25,11 @@ public class WeatherStatsServicesImpl implements WeatherStatsServices {
 	public HttpConnectionService connectionHttp;
 
 	@Autowired
-	public WeatherStatsCache coronavirusStatsCache;
+	public WeatherStatsCache weatherStatsCache;
 
 	@Override
-	public HashMap<String, String> globalNumbers() {
-		HttpResponse<JsonNode> res = connectionHttp.totalNumbers();
+	public HashMap<String, String> cityWeather(String city) {
+		HttpResponse<JsonNode> res = connectionHttp.cityWeather(city);
 		JSONObject r = res.getBody().getObject().getJSONObject("data");
 
 		HashMap<String, String> resp = new HashMap<String, String>();
@@ -48,7 +48,7 @@ public class WeatherStatsServicesImpl implements WeatherStatsServices {
 
 		return resp;
 	}
-
+/*
 	@Override
 	public HashMap<String, List<HashMap<String, String>>> statsNumbers() {
 		return null;
@@ -209,5 +209,5 @@ public class WeatherStatsServicesImpl implements WeatherStatsServices {
 
 		return respFinal;
 	}
-
+*/
 }

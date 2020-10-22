@@ -22,9 +22,9 @@ import edu.eci.arsw.services.WeatherStatsServices;
 public class WeatherStatsController {
 
     @Autowired
-    WeatherStatsServices coronavirusStatsServices;
+    WeatherStatsServices weatherStatsServices;
 
-
+/*
     @GetMapping
     public ResponseEntity<?> getAllCases(){
         try{
@@ -35,11 +35,11 @@ public class WeatherStatsController {
             return new ResponseEntity<>("Recurso no encontrado",HttpStatus.NOT_FOUND);
         }
     }
-
-    @GetMapping("/{pais}")
+*/
+    @GetMapping("/{ciudad}")
     public ResponseEntity<?> getCasesByCountry(@PathVariable String pais){
         try{
-            String data = new Gson().toJson(coronavirusStatsServices.countryStatsNumbers(pais));
+            String data = new Gson().toJson(weatherStatsServices.cityWeather(pais));
             return new ResponseEntity<>(data,HttpStatus.ACCEPTED);
         }catch(Exception ex){
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

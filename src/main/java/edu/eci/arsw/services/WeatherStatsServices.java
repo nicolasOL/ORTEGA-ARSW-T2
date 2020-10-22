@@ -7,7 +7,8 @@ import edu.eci.arsw.model.*;
 
 public interface WeatherStatsServices {
 	
-	public HashMap<String, String> globalNumbers ();
+	public HashMap<String, String> cityWeather (String city);
+	/*
 
 	public List<DatosPais> getAllCountryNumbers(); 
 
@@ -18,4 +19,5 @@ public interface WeatherStatsServices {
 	public List<DatosProvincia> countryStatsNumbers (String pais);
 		
 	public String[] getAllCountries();
+	*/
 }

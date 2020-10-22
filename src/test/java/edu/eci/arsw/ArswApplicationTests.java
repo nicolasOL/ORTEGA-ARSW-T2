@@ -19,6 +19,7 @@ import edu.eci.arsw.services.WeatherStatsServices;
 
 @SpringBootTest
 class ArswApplicationTests {
+	/*
 	@Autowired
 	WeatherStatsServices t;
 
@@ -68,6 +69,6 @@ class ArswApplicationTests {
 
 		//System.out.println(ht.statsNumbers().getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats").getJSONObject(0).getString("recovered"));
 		
-	}
+	}*/
 
 }

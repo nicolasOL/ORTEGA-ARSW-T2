@@ -11,14 +11,14 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 
 @Service
 public class HttpConnectionServiceImpl implements HttpConnectionService {
-	
+	final String key="170e2a5df68abbdd9ad25546e7239918";
 	@Override
-	public HttpResponse<JsonNode> totalNumbers () {
+	public HttpResponse<JsonNode> cityWeather (String city) {
 		HttpResponse<JsonNode> response=null;
 		try {
-			response = Unirest.get("https://rapidapi.p.rapidapi.com/v1/total")
-					.header("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com")
-					.header("x-rapidapi-key", "e99c72dd56msh13af4ebb49cd037p18760fjsna447e334494b")
+			
+			response = Unirest.get("api.openweathermap.org/data/2.5/weather?q={"+city+"}&appid={"+key+"}")
+					//.header("x-rapidapi-key", "170e2a5df68abbdd9ad25546e7239918")
 					.asJson();
 		} catch (UnirestException e) {
 			// TODO Auto-generated catch block
@@ -26,7 +26,7 @@ public class HttpConnectionServiceImpl implements HttpConnectionService {
 		}
 		return response;
 	}
-	
+	/*
 	@Override
 	public HttpResponse<JsonNode> statsNumbers () {
 		HttpResponse<JsonNode> response=null;
@@ -72,5 +72,5 @@ public class HttpConnectionServiceImpl implements HttpConnectionService {
 		return response;
 	}
 	
-	
+	*/
 }
