@@ -6,6 +6,12 @@ public class DatosProvincia {
     private String numeroRecuperados;
     private String numeroInfectados;
 
+    /**
+     * @param nombre
+     * @param numeroMuertes
+     * @param numeroRecuperados
+     * @param numeroInfectados
+     */
     public DatosProvincia(String nombre, String numeroMuertes, String numeroRecuperados, String numeroInfectados) {
         this.nombre = nombre;
         this.numeroMuertes = numeroMuertes;

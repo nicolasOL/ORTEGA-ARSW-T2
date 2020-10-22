@@ -9,8 +9,13 @@ import edu.eci.arsw.connection.HttpConnectionService;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+/**
+ * @author Nicolás
+ *
+ */
 @Service
 public class HttpConnectionServiceImpl implements HttpConnectionService {
+	
 	final String key="170e2a5df68abbdd9ad25546e7239918";
 	@Override
 	public HttpResponse<JsonNode> cityWeather (String city) {

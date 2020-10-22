@@ -1,8 +1,6 @@
 package edu.eci.arsw.cache;
 
 import java.util.HashMap;
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import edu.eci.arsw.model.DatosCiudad;

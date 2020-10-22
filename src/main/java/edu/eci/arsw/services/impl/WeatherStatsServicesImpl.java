@@ -12,6 +12,10 @@ import edu.eci.arsw.connection.HttpConnectionService;
 import edu.eci.arsw.services.WeatherStatsServices;
 import edu.eci.arsw.model.DatosCiudad;
 
+/**
+ * @author Nicolás
+ * Servicio de consulta del clima
+ */
 @Service
 public class WeatherStatsServicesImpl implements WeatherStatsServices {
 
@@ -27,6 +31,7 @@ public class WeatherStatsServicesImpl implements WeatherStatsServices {
 	/**
 	 * Retorna el objeto con los datos del clima de la ciudad seleccionada
 	 * @param String city
+	 * @return DatosCiudad 
 	 */
 	@Override
 	public DatosCiudad cityWeather(String city) {

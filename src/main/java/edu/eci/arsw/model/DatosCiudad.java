@@ -1,5 +1,9 @@
 package edu.eci.arsw.model;
 
+/**
+ * @author Nicolás
+ * Almacena la informacion meteorologica de una ciudad
+ */
 public class DatosCiudad {
 	
     private String nombre;
@@ -10,6 +14,7 @@ public class DatosCiudad {
     private String presion;
     private String humedad;
     
+
 	public DatosCiudad(String nombre, String temperatura, String sensacion, String tempminima, String tempmaxima,
 			String humedad, String presion) {
 		this.nombre = nombre;
