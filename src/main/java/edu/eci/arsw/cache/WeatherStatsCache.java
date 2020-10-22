@@ -5,28 +5,20 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import edu.eci.arsw.model.DatosPais;
-import edu.eci.arsw.model.DatosProvincia;
+import edu.eci.arsw.model.DatosCiudad;
+
 
 @Service
 public class WeatherStatsCache {
-    private HashMap<String,DatosPais> memoriaDatoPais = new HashMap<String,DatosPais>();
-
-    private HashMap<String,List<DatosProvincia>> memoriaDatoProvincia = new HashMap<String,List<DatosProvincia>>();
+    private HashMap<String,DatosCiudad> memoriaDatoCiudad = new HashMap<String,DatosCiudad>();
     
-    public void saveDatoPais(String pais, DatosPais datosPais){
-        memoriaDatoPais.put(pais, datosPais);
+    public void saveDatoPais(String pais, DatosCiudad datosPais){
+        memoriaDatoCiudad.put(pais, datosPais);
     }
 
-    public void saveDatoProvincia(String pais, List<DatosProvincia> datosProvincia){
-        memoriaDatoProvincia.put(pais, datosProvincia);
+    public HashMap<String,DatosCiudad> getMemoriaDatoPais(){
+        return memoriaDatoCiudad;
     }
 
-    public HashMap<String,DatosPais> getMemoriaDatoPais(){
-        return memoriaDatoPais;
-    }
 
-    public HashMap<String,List<DatosProvincia>> getMemoriaDatoProvincia(){
-        return memoriaDatoProvincia;
-    }
 }

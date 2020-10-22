@@ -15,7 +15,7 @@ import com.mashape.unirest.http.JsonNode;
 import edu.eci.arsw.cache.WeatherStatsCache;
 import edu.eci.arsw.connection.HttpConnectionService;
 import edu.eci.arsw.services.WeatherStatsServices;
-import edu.eci.arsw.model.DatosPais;
+import edu.eci.arsw.model.DatosCiudad;
 import edu.eci.arsw.model.DatosProvincia;
 
 @Service
@@ -28,24 +28,21 @@ public class WeatherStatsServicesImpl implements WeatherStatsServices {
 	public WeatherStatsCache weatherStatsCache;
 
 	@Override
-	public HashMap<String, String> cityWeather(String city) {
+	public DatosCiudad cityWeather(String city) {
+		
 		HttpResponse<JsonNode> res = connectionHttp.cityWeather(city);
-		JSONObject r = res.getBody().getObject().getJSONObject("data");
-
-		HashMap<String, String> resp = new HashMap<String, String>();
-
-		// HashMap<String,String> tempMuertes = new HashMap<String,String>();
-		resp.put("muertes", r.getString("deaths"));
-		// resp.add(tempMuertes);
-
-		// HashMap<String,String> tempInfectados = new HashMap<String,String>();
-		resp.put("infectados", r.getString("confirmed"));
-		// resp.add(tempInfectados);
-
-		// HashMap<String,String> tempCurados = new HashMap<String,String>();
-		resp.put("curados", r.getString("recovered"));
-		// resp.add(tempCurados);
-
+		
+		JSONObject r = res.getBody().getObject().getJSONObject("main");
+		
+		String temp=r.getString("temp");
+		String sens=r.getString("feels_like");
+		String min=r.getString("temp_min");
+		String max=r.getString("temp_max");
+		String pre=r.getString("pressure");
+		String hum=r.getString("humidity");
+		
+		DatosCiudad resp= new DatosCiudad(city, temp, sens, min, max, hum, pre);
+		
 		return resp;
 	}
 /*

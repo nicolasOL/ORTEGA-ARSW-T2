@@ -17,9 +17,9 @@ public class HttpConnectionServiceImpl implements HttpConnectionService {
 		HttpResponse<JsonNode> response=null;
 		try {
 			
-			response = Unirest.get("api.openweathermap.org/data/2.5/weather?q={"+city+"}&appid={"+key+"}")
+			response = Unirest.get("http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+key).asJson();
 					//.header("x-rapidapi-key", "170e2a5df68abbdd9ad25546e7239918")
-					.asJson();
+					
 		} catch (UnirestException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

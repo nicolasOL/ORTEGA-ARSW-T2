@@ -7,7 +7,7 @@ import edu.eci.arsw.model.*;
 
 public interface WeatherStatsServices {
 	
-	public HashMap<String, String> cityWeather (String city);
+	public  DatosCiudad cityWeather (String city);
 	/*
 
 	public List<DatosPais> getAllCountryNumbers(); 

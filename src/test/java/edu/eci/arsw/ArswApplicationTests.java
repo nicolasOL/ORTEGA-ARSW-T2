@@ -19,12 +19,12 @@ import edu.eci.arsw.services.WeatherStatsServices;
 
 @SpringBootTest
 class ArswApplicationTests {
-	/*
+	
 	@Autowired
 	WeatherStatsServices t;
-
+	/*
 	@Autowired
-	HttpConnectionService ht;
+	HttpConnectionService t;
 
 	@Autowired
 	WeatherStatsServices cs;
@@ -55,7 +55,7 @@ class ArswApplicationTests {
 		assertEquals((int) HttpStatus.SC_OK, response.getStatus());
 		// System.out.println(response.getBody().toString());
 	}
-
+*/
 	@Test
 	public void shouldWork() throws UnirestException, JSONException {
 		//List<String> a=t.totalNumbers();
@@ -63,12 +63,13 @@ class ArswApplicationTests {
 		//System.out.println(a.toString());
 		//System.out.println(b.toString());
 
-		//System.out.println(cs.countryStatsNumbers("Colombia"));
+		//System.out.println(t.cityWeather("London").getBody().getObject().getJSONObject("main").getString("temp"));
+		System.out.println(t.cityWeather("London").getPresion());
 
-		cs.countryStatsNumbers("Colombia");
+		
 
 		//System.out.println(ht.statsNumbers().getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats").getJSONObject(0).getString("recovered"));
 		
-	}*/
+	}
 
 }
